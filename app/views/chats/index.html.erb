@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h3>Conversaciones</h3>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Mensaje</th>
+      <th>ID de Prospecto</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @chats.each do |chat| %>
+      <tr>
+        <td><%= chat.content %></td>
+        <td><%= chat.prospect_id %></td>
+        <td><%= link_to 'Show', chat %></td>
+        <td><%= link_to 'Edit', edit_chat_path(chat) %></td>
+        <td><%= link_to 'Destroy', chat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Añadir conversación', new_chat_path, class:"btn btn-primary" %>
