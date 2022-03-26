@@ -6,5 +6,6 @@ class CreateChats < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
+    add_index :chats, [:prospect_id, :created_at]
   end
 end

@@ -8,6 +8,8 @@ class ProspectsController < ApplicationController
 
   # GET /prospects/1 or /prospects/1.json
   def show
+    @prospect = Prospect.find(params[:id])
+    
   end
 
   # GET /prospects/new

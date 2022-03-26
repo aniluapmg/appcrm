@@ -1,0 +1,10 @@
+<p>
+  <strong>Prospecto:</strong>
+ 
+  <%= chat.prospect %>
+</p>
+<strong>Content:</strong>
+  <%= chat.content %>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(micropost.created_at) %> ago.
+  </span>
