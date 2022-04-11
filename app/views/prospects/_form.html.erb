@@ -2,18 +2,30 @@
 <%= simple_form_for(@prospect) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
+<div class="container center>
   <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :last_name %>
-    <%= f.input :phone %>
-    <%= f.input :email %>
-    <%= f.input :status %>
-    <%= f.select :status, ['Prospecto', 'Interesado', 'Cliente'], :prompt => 'Seleccione una opción' %>
-    
+  <div class="row mb-3 field form-group">
+  <%= f.text_field :name, class:"form-control",placeholder:"Nombre" %>
   </div>
-
+  <div class="row mb-3 field form-group">
+    <%= f.text_field :last_name, class:"form-control", placeholder:"*Apellido" %>
+  </div>
+  <div class="row mb-3 field form-group">
+    <%= f.text_field :phone, class:"form-control", placeholder:"*Telefono" %>
+  </div>
+  <div class="row mb-3 field form-group">
+    <%= f.text_field :email, class:"form-control", placeholder:"*Email" %>
+  </div>
+  <div class="row mb-3 field form-group"> 
+    <%= f.select :status, ['Prospecto', 'Interesado', 'Cliente'], :prompt => 'Seleccione una opción' %>
+  </div>
+  </div>
+  
+<br/>
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.submit "Guardar", class:"btn btn-primary" %>
+    <%= link_to 'Show', @prospect, class:"btn btn-secondary" %> 
+    <%= link_to 'Back', prospects_path, class:"btn btn-secondary" %>
   </div>
 <% end %>
+</div>

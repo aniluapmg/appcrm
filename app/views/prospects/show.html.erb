@@ -23,6 +23,15 @@
   <%= @prospect.status %>
 </p>
 
+<h2>Chats</h2>
+<% for chat in @prospect.chats %>
+
+    <ul>
+      <li><%= chat.content %></li> 
+    </ul>
+<% end %>
+
 <%= link_to 'Edit', edit_prospect_path(@prospect) %> |
+<%= link_to 'Revisar conversaciones', prospect_chats_path(@prospect) %> |
 <%= link_to 'Back', prospects_path %>
-<%= render @prospect.chats %>
+

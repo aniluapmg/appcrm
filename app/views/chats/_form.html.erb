@@ -1,14 +1,26 @@
+<div class="container center">
+<%= form_with(model: [@prospect, chat], local: true) do |form| %>
+  <% if chat.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(chat.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-<%= simple_form_for(@chat) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-  <div class="form-inputs">
-    <%= f.input :content %>
-    <%= f.input :prospect_id %>
+      <ul>
+      <% chat.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <%= form.label "Conversación" %><br/>
+    <%= form.text_area :content %>
   </div>
-
+  <br/>
   <div class="form-actions">
-    <%= f.button :submit %>
+  <%= form.submit "Guardar", class:"btn btn-primary" %>
+  <%= link_to 'Back', prospect_chats_path(@prospect), class:"btn btn-secondary mx-3" %>
+
   </div>
 <% end %>
+</div>

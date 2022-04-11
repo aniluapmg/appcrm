@@ -10,5 +10,5 @@
   <%= @chat.prospect_id %>
 </p>
 
-<%= link_to 'Edit', edit_chat_path(@chat) %> |
-<%= link_to 'Back', chats_path %>
+<%= link_to 'Edit', edit_prospect_chat_path(@prospect, @chat) %> |
+<%= link_to 'Back', prospect_chats_path(@prospect) %>

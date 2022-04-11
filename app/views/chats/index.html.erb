@@ -6,7 +6,8 @@
   <thead>
     <tr>
       <th>Mensaje</th>
-      <th>ID de Prospecto</th>
+      <th>Nombre de Prospecto</th>
+      <th>Fecha de Ingreso</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,10 +16,13 @@
     <% @chats.each do |chat| %>
       <tr>
         <td><%= chat.content %></td>
-        <td><%= chat.prospect_id %></td>
-        <td><%= link_to 'Show', chat %></td>
-        <td><%= link_to 'Edit', edit_chat_path(chat) %></td>
-        <td><%= link_to 'Destroy', chat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= chat.prospect.name %>  <%= chat.prospect.last_name %></td>
+        <td><%= chat.created_at.strftime("%F") %></td>
+        <td><%= link_to 'Show Prospects', [@prospect] %></td>
+        
+        <td><%= link_to 'Edit Post', edit_prospect_chat_path(@prospect, chat) %></td>
+      
+        <td><%= link_to 'Destroy Chat', [@prospect, chat], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +30,7 @@
 
 <br>
 
-<%= link_to 'Añadir conversación', new_chat_path, class:"btn btn-primary" %>
+
+<%= link_to 'Añadir conversación', new_prospect_chat_path(@prospect), class:"btn btn-primary" %>
+<%= link_to 'Back', prospect_path(@prospect), class:"btn btn-secondary mx-3" %>
+

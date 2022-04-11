@@ -24,13 +24,13 @@
         <td><%= prospect.phone %></td>
         <td><%= prospect.email %></td>
         <td><%= prospect.status %></td>
-        <td><%= prospect.created_at %></td>
-        <td><%= prospect.chats.count %>  <%= link_to prospect do %> <%= image_tag "ver.png" %>
+        <td><%= prospect.created_at.strftime("%F") %></td>
+        <td><%= prospect.chats.count %>   <%= link_to prospect do %> <%= image_tag "ver.png" %>
         <% end %></td>
         
         <td><%= link_to 'Show', prospect %></td>
         <td><%= link_to 'Edit', edit_prospect_path(prospect) %></td>
-        <td><%= link_to 'Destroy', prospect, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', prospect, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

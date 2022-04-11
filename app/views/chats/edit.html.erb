@@ -2,5 +2,5 @@
 
 <%= render 'form', chat: @chat %>
 
-<%= link_to 'Show', @chat %> |
-<%= link_to 'Back', chats_path %>
+<%= link_to 'Show', [@prospect, @chat] %> |
+<%= link_to 'Back', prospect_chat_path(@prospect) %>
